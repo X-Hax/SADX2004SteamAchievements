@@ -107,7 +107,7 @@ extern "C"
 		WriteJump(SetEmblemCollected, SetEmblemCollected_r);
 	}
 
-	__declspec(dllexport) void Shutdown()
+	__declspec(dllexport) void OnExit()
 	{
 		SteamAPI_Shutdown();
 	}
