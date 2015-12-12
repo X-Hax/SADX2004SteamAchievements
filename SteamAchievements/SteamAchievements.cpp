@@ -59,6 +59,87 @@ void UnlockCharacterAdventure_r(int character)
 	}
 }
 
+void __cdecl sub_4130E0_r()
+{
+	if (*(uint16_t*)0x3B18A24 != Characters_Tikal)
+	{
+		switch (*(uint16_t*)0x3B18A24)
+		{
+		case Characters_Sonic:
+			*(uint8_t*)0x3B18850 = 1;
+			*(uint8_t*)0x3B188A9 = 1;
+			*(uint8_t*)0x3B188AA = 1;
+			*(uint8_t*)0x3B188AB = 1;
+			*(uint8_t*)0x3B1885A = 1;
+			*(uint8_t*)0x3B188BF = 1;
+			*(uint8_t*)0x3B188C0 = 1;
+			*(uint8_t*)0x3B188C1 = 1;
+			if (callbackreceived)
+				SteamUserStats()->SetAchievement("NEW_ACHIEVEMENT_1_5"); // Sonic the Hedgehog
+			break;
+		case Characters_Tails:
+			*(uint8_t*)0x3B18851 = 1;
+			*(uint8_t*)0x3B188E4 = 1;
+			*(uint8_t*)0x3B188E5 = 1;
+			*(uint8_t*)0x3B188E6 = 1;
+			*(uint8_t*)0x3B1885B = 1;
+			*(uint8_t*)0x3B188F6 = 1;
+			*(uint8_t*)0x3B188F7 = 1;
+			*(uint8_t*)0x3B188F8 = 1;
+			break;
+		case Characters_Knuckles:
+			*(uint8_t*)0x3B18917 = 1;
+			*(uint8_t*)0x3B18852 = 1;
+			*(uint8_t*)0x3B18923 = 1;
+			*(uint8_t*)0x3B18924 = 1;
+			*(uint8_t*)0x3B18925 = 1;
+			*(uint8_t*)0x3B1885C = 1;
+			*(uint8_t*)0x3B1892F = 1;
+			*(uint8_t*)0x3B18930 = 1;
+			*(uint8_t*)0x3B18931 = 1;
+			break;
+		case Characters_Amy:
+			*(uint8_t*)0x3B18853 = 1;
+			*(uint8_t*)0x3B1895B = 1;
+			*(uint8_t*)0x3B1895C = 1;
+			*(uint8_t*)0x3B1895D = 1;
+			*(uint8_t*)0x3B1885D = 1;
+			*(uint8_t*)0x3B18963 = 1;
+			*(uint8_t*)0x3B18964 = 1;
+			*(uint8_t*)0x3B18965 = 1;
+			break;
+		case Characters_Big:
+			*(uint8_t*)0x3B189D3 = 1;
+			*(uint8_t*)0x3B18855 = 1;
+			*(uint8_t*)0x3B189DA = 1;
+			*(uint8_t*)0x3B189DB = 1;
+			*(uint8_t*)0x3B189DC = 1;
+			*(uint8_t*)0x3B1885F = 1;
+			*(uint8_t*)0x3B189E2 = 1;
+			*(uint8_t*)0x3B189E3 = 1;
+			*(uint8_t*)0x3B189E4 = 1;
+			break;
+		case Characters_Gamma:
+			*(uint8_t*)0x3B18854 = 1;
+			*(uint8_t*)0x3B1899F = 1;
+			*(uint8_t*)0x3B189A0 = 1;
+			*(uint8_t*)0x3B189A1 = 1;
+			*(uint8_t*)0x3B1885E = 1;
+			*(uint8_t*)0x3B189AA = 1;
+			*(uint8_t*)0x3B189AB = 1;
+			*(uint8_t*)0x3B189AC = 1;
+			break;
+		}
+		if (!*(uint8_t*)0x3B1884F && *(uint8_t*)0x3B18850 && *(uint8_t*)0x3B18851 && *(uint8_t*)0x3B18852 && *(uint8_t*)0x3B18853 && *(uint8_t*)0x3B18855)
+			if (*(uint8_t*)0x3B18854)
+			{
+				*(uint8_t*)0x3B1884F = 1;
+				if (callbackreceived)
+					SteamUserStats()->SetAchievement("NEW_ACHIEVEMENT_1_6"); // Super Sonic
+			}
+	}
+}
+
 VoidFunc(SaveSave, 0x42D630);
 void SetEmblemCollected_r(SaveFileData *savefile, signed int index)
 {
@@ -104,6 +185,7 @@ extern "C"
 		callbackobj = new CallbackStuff();
 		SteamUserStats()->RequestCurrentStats();
 		WriteJump(UnlockCharacterAdventure, UnlockCharacterAdventure_r);
+		WriteJump((void*)0x4130E0, sub_4130E0_r);
 		WriteJump(SetEmblemCollected, SetEmblemCollected_r);
 	}
 
