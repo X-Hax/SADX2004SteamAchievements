@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\Steam">
+      <UniqueIdentifier>{8806d86f-1437-4235-86ba-55195238921d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\ModLoader">
+      <UniqueIdentifier>{779573d9-cd76-4f96-bc4d-03468348ee34}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="steam\isteamapplist.h">
+      <Filter>Header Files\Steam</Filter>
+    </ClInclude>
+    <ClInclude Include="steam\isteamapps.h">
+      <Filter>Header Files\Steam</Filter>
+    </ClInclude>
+    <ClInclude Include="steam\isteamclient.h">
+      <Filter>Header Files\Steam</Filter>
+    </ClInclude>
+    <ClInclude Include="steam\isteamcontroller.h">
+      <Filter>Header Files\Steam</Filter>
+    </ClInclude>
+    <ClInclude Include="steam\isteamfriends.h">
+      <Filter>Header Files\Steam</Filter>
+    </ClInclude>
+    <ClInclude Include="steam\isteamhtmlsurface.h">
+      <Filter>Header Files\Steam</Filter>
+    </ClInclude>
+    <ClInclude Include="steam\isteamhttp.h">
+      <Filter>Header Files\Steam</Filter>
+    </ClInclude>
+    <ClInclude Include="steam\isteaminventory.h">
+      <Filter>Header Files\Steam</Filter>
+    </ClInclude>
+    <ClInclude Include="steam\isteammatchmaking.h">
+      <Filter>Header Files\Steam</Filter>
+    </ClInclude>
+    <ClInclude Include="steam\isteammusic.h">
+      <Filter>Header Files\Steam</Filter>
+    </ClInclude>
+    <ClInclude Include="steam\isteammusicremote.h">
+      <Filter>Header Files\Steam</Filter>
+    </ClInclude>
+    <ClInclude Include="steam\isteamnetworking.h">
+      <Filter>Header Files\Steam</Filter>
+    </ClInclude>
+    <ClInclude Include="steam\isteamremotestorage.h">
+      <Filter>Header Files\Steam</Filter>
+    </ClInclude>
+    <ClInclude Include="steam\isteamscreenshots.h">
+      <Filter>Header Files\Steam</Filter>
+    </ClInclude>
+    <ClInclude Include="steam\isteamugc.h">
+      <Filter>Header Files\Steam</Filter>
+    </ClInclude>
+    <ClInclude Include="steam\isteamunifiedmessages.h">
+      <Filter>Header Files\Steam</Filter>
+    </ClInclude>
+    <ClInclude Include="steam\isteamuser.h">
+      <Filter>Header Files\Steam</Filter>
+    </ClInclude>
+    <ClInclude Include="steam\isteamuserstats.h">
+      <Filter>Header Files\Steam</Filter>
+    </ClInclude>
+    <ClInclude Include="steam\isteamutils.h">
+      <Filter>Header Files\Steam</Filter>
+    </ClInclude>
+    <ClInclude Include="steam\isteamvideo.h">
+      <Filter>Header Files\Steam</Filter>
+    </ClInclude>
+    <ClInclude Include="steam\steam_api.h">
+      <Filter>Header Files\Steam</Filter>
+    </ClInclude>
+    <ClInclude Include="modloader\d3d8types.h">
+      <Filter>Header Files\ModLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="modloader\ModLoader\MemAccess.h">
+      <Filter>Header Files\ModLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="modloader\ninja.h">
+      <Filter>Header Files\ModLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="modloader\SADXModLoader\SADXEnums.h">
+      <Filter>Header Files\ModLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="modloader\SADXModLoader\SADXFunctions.h">
+      <Filter>Header Files\ModLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="modloader\SADXModLoader.h">
+      <Filter>Header Files\ModLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="modloader\SADXModLoader\SADXStructs.h">
+      <Filter>Header Files\ModLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="modloader\SADXModLoader\SADXVariables.h">
+      <Filter>Header Files\ModLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="steam\steamtypes.h">
+      <Filter>Header Files\Steam</Filter>
+    </ClInclude>
+    <ClInclude Include="steam\steamclientpublic.h">
+      <Filter>Header Files\Steam</Filter>
+    </ClInclude>
+    <ClInclude Include="steam\steamuniverse.h">
+      <Filter>Header Files\Steam</Filter>
+    </ClInclude>
+    <ClInclude Include="steam\matchmakingtypes.h">
+      <Filter>Header Files\Steam</Filter>
+    </ClInclude>
+    <ClInclude Include="steam\steamhttpenums.h">
+      <Filter>Header Files\Steam</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SteamAchievements.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="dllmain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
