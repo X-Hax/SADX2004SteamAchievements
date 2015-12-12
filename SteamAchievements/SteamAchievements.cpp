@@ -172,6 +172,14 @@ void SetEmblemCollected_r(SaveFileData *savefile, signed int index)
 	}
 }
 
+DataPointer(SaveFileData, SaveFile, 0x3B2B3A8);
+void SetMetalEmblemCollected(SaveFileData *savefile, int character, signed int level, int mission)
+{
+	SaveFile.MetalEmblems |= 1 << (mission + 3 * (level - 1));
+	if (callbackreceived && SaveFile.MetalEmblems == 0x3FFFFFFF)
+		SteamUserStats()->SetAchievement("NEW_ACHIEVEMENT_1_13"); // Metal Sonic Master
+}
+
 extern "C"
 {
 	__declspec(dllexport) void Init(const char *path, const HelperFunctions &helperFunctions)
@@ -187,6 +195,7 @@ extern "C"
 		WriteJump(UnlockCharacterAdventure, UnlockCharacterAdventure_r);
 		WriteJump((void*)0x4130E0, sub_4130E0_r);
 		WriteJump(SetEmblemCollected, SetEmblemCollected_r);
+		WriteJump((void*)0x4B466C, SetMetalEmblemCollected);
 	}
 
 	__declspec(dllexport) void OnExit()
