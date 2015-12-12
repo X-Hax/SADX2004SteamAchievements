@@ -180,6 +180,17 @@ void SetMetalEmblemCollected(SaveFileData *savefile, int character, signed int l
 		SteamUserStats()->SetAchievement("NEW_ACHIEVEMENT_1_13"); // Metal Sonic Master
 }
 
+void CheckMissions()
+{
+	WriteSaveFile();
+	uint8_t *flags = (uint8_t *)0x3B2B368;
+	for (size_t i = 0; i < 60; i++)
+		if ((flags[i] & MissionFlags_Complete) == 0)
+			return;
+	if (callbackreceived)
+		SteamUserStats()->SetAchievement("NEW_ACHIEVEMENT_1_14"); // Mission All Accomplished
+}
+
 extern "C"
 {
 	__declspec(dllexport) void Init(const char *path, const HelperFunctions &helperFunctions)
@@ -196,6 +207,7 @@ extern "C"
 		WriteJump((void*)0x4130E0, sub_4130E0_r);
 		WriteJump(SetEmblemCollected, SetEmblemCollected_r);
 		WriteJump((void*)0x4B466C, SetMetalEmblemCollected);
+		WriteCall((void*)0x59202A, CheckMissions);
 	}
 
 	__declspec(dllexport) void OnExit()
