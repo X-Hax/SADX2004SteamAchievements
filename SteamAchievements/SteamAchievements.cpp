@@ -163,7 +163,7 @@ void SetEmblemCollected_r(SaveFileData *savefile, signed int index)
 		}
 		else if (count == 65)
 			SteamUserStats()->IndicateAchievementProgress("NEW_ACHIEVEMENT_1_11", 65, 130);
-		if (savefile->Emblems[0] == 0xFF && savefile->Emblems[1] == 0xFF && savefile->Emblems[2] == 0xFF && savefile->Emblems[3] == 0xFF)
+		if (*(int*)savefile->Emblems == 0xFFFFFFFF)
 			SetAchievement("NEW_ACHIEVEMENT_1_7"); // The Fastest & Strongest
 		if (savefile->Emblems[0xC] == 0xFF && (savefile->Emblems[0xD] & 3) == 3)
 			SetAchievement("NEW_ACHIEVEMENT_1_8"); // Sub Game Master
