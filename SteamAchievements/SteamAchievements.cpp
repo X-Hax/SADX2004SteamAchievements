@@ -169,7 +169,7 @@ void SetEmblemCollected_r(SaveFileData *savefile, signed int index)
 			SetAchievement("NEW_ACHIEVEMENT_1_11"); // The Perfect Adventurer
 			SetAchievement("NEW_ACHIEVEMENT_1_12"); // Metal Sonic
 		}
-		else if (count % 20 == 0)
+		else if (count == 110 || count % 20 == 0)
 			SteamUserStats()->IndicateAchievementProgress("NEW_ACHIEVEMENT_1_11", count, 130);
 		if (*(int*)&savefile->Emblems == 0xFFFFFFFF)
 			SetAchievement("NEW_ACHIEVEMENT_1_7"); // The Fastest & Strongest
