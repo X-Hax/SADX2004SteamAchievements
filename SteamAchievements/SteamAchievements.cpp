@@ -133,12 +133,20 @@ void __cdecl sub_4130E0_r()
 			*(uint8_t*)0x3B189AC = 1;
 			break;
 		}
-		if (!*(uint8_t*)0x3B1884F && *(uint8_t*)0x3B18850 && *(uint8_t*)0x3B18851 && *(uint8_t*)0x3B18852 && *(uint8_t*)0x3B18853 && *(uint8_t*)0x3B18855)
-			if (*(uint8_t*)0x3B18854)
+		if (!*(uint8_t*)0x3B1884F)
+		{
+			uint8_t *flag = (uint8_t *)0x3B18850;
+			int count = 0;
+			for (int i = 0; i < 6; i++)
+				count += flag[i];
+			if (count == 6)
 			{
 				*(uint8_t*)0x3B1884F = 1;
 				SetAchievement("NEW_ACHIEVEMENT_1_6"); // Super Sonic
 			}
+			else if (callbackreceived)
+				SteamUserStats()->IndicateAchievementProgress("NEW_ACHIEVEMENT_1_6", count, 6);
+		}
 	}
 }
 
@@ -161,8 +169,8 @@ void SetEmblemCollected_r(SaveFileData *savefile, signed int index)
 			SetAchievement("NEW_ACHIEVEMENT_1_11"); // The Perfect Adventurer
 			SetAchievement("NEW_ACHIEVEMENT_1_12"); // Metal Sonic
 		}
-		else if (count == 65)
-			SteamUserStats()->IndicateAchievementProgress("NEW_ACHIEVEMENT_1_11", 65, 130);
+		else if (count % 20 == 0)
+			SteamUserStats()->IndicateAchievementProgress("NEW_ACHIEVEMENT_1_11", count, 130);
 		if (*(int*)&savefile->Emblems == 0xFFFFFFFF)
 			SetAchievement("NEW_ACHIEVEMENT_1_7"); // The Fastest & Strongest
 		if ((savefile->Emblems[0xC] & 0xFF) == 0xFF && (savefile->Emblems[0xD] & 3) == 3)
@@ -186,10 +194,14 @@ void CheckMissions()
 {
 	WriteSaveFile();
 	uint8_t *flags = (uint8_t *)0x3B2B368;
+	int count = 0;
 	for (size_t i = 0; i < 60; i++)
-		if ((flags[i] & MissionFlags_Complete) == 0)
-			return;
-	SetAchievement("NEW_ACHIEVEMENT_1_14"); // Mission All Accomplished
+		if ((flags[i] & MissionFlags_Complete) == MissionFlags_Complete)
+			count++;
+	if (count == 60)
+		SetAchievement("NEW_ACHIEVEMENT_1_14"); // Mission All Accomplished
+	else if (callbackreceived && count % 20 == 0)
+		SteamUserStats()->IndicateAchievementProgress("NEW_ACHIEVEMENT_1_14", count, 60);
 }
 
 extern "C"
