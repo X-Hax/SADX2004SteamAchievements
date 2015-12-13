@@ -163,13 +163,13 @@ void SetEmblemCollected_r(SaveFileData *savefile, signed int index)
 		}
 		else if (count == 65)
 			SteamUserStats()->IndicateAchievementProgress("NEW_ACHIEVEMENT_1_11", 65, 130);
-		if (*(int*)savefile->Emblems == 0xFFFFFFFF)
+		if (*(int*)&savefile->Emblems == 0xFFFFFFFF)
 			SetAchievement("NEW_ACHIEVEMENT_1_7"); // The Fastest & Strongest
-		if (savefile->Emblems[0xC] == 0xFF && (savefile->Emblems[0xD] & 3) == 3)
+		if ((savefile->Emblems[0xC] & 0xFF) == 0xFF && (savefile->Emblems[0xD] & 3) == 3)
 			SetAchievement("NEW_ACHIEVEMENT_1_8"); // Sub Game Master
 		if ((savefile->Emblems[0xD] & 0x7C) == 0x7C)
 			SetAchievement("NEW_ACHIEVEMENT_1_9"); // Chao's Best Friend
-		if ((savefile->Emblems[0xE] & 0xC0) == 0xC0 && savefile->Emblems[0xF] == 0xFF && (savefile->Emblems[0x10] & 3) == 3)
+		if ((savefile->Emblems[0xE] & 0xC0) == 0xC0 && (savefile->Emblems[0xF] & 0xFF) == 0xFF && (savefile->Emblems[0x10] & 3) == 3)
 			SetAchievement("NEW_ACHIEVEMENT_1_10"); // The Adventurer
 	}
 }
